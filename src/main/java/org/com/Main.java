@@ -15,13 +15,28 @@ public static void main (String[] args) {
 	
 	PubSubSystem system=new PubSubSystem ();
 	
-	ConsuemrI consumer=new ConcreteConsumer ();
+	ConsuemrI consumer1=new ConcreteConsumer ("CONSUMER 1");
 	
-	system.subsribe (consumer,Topics.SPORTS);
-	system.subsribe (consumer,Topics.MOVIES);
+	system.subsribe (consumer1,Topics.SPORTS);
+	system.subsribe (consumer1,Topics.MOVIES);
+	
+	ConsuemrI consumer2=new ConcreteConsumer ("CONSUMER 2");
+	
+	system.subsribe (consumer2,Topics.SPORTS);
+	
+	
+	
 	
 	
 	MessageProducer producer=new MessageProducer ();
+	
+	producer.start (system);
+	
+	System.out.println ("***********************");
+	
+	
+	system.unsubsribe (consumer1,Topics.SPORTS);
+	system.unsubsribe (consumer1,Topics.MOVIES);
 	
 	producer.start (system);
 	

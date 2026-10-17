@@ -7,10 +7,18 @@ import org.com.enums.Topics;
 
 @Data
 public class ConcreteConsumer implements ConsuemrI {
+
+private String name;
+
+public  ConcreteConsumer(String name){
+	this.name=name;
+	
+}
+
 @Override
 public void consume (Topics topic, String message) {
 	
-	System.out.println ("CONSUMED ::::Message on " + topic + "|||" + message);
+	System.out.println ("CONSUMED ::: By"+this.name+":Message on " + topic + "|||" + message);
 	
 	
 }
